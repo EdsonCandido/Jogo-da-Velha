@@ -6,8 +6,9 @@
 package Jogo;
 
 /**
- *
  * @author edson
+ * @version 1.0.0
+ * @see Copia e coloca meus creditos parça
  */
 public class JogoVelha extends javax.swing.JFrame {
 
