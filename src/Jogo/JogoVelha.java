@@ -5,6 +5,8 @@
  */
 package Jogo;
 
+import javax.swing.JOptionPane;
+
 /**
  * @author edson
  * @version 1.0.0
@@ -12,11 +14,48 @@ package Jogo;
  */
 public class JogoVelha extends javax.swing.JFrame {
 
+    boolean jogador1Ativo = true, jogador2Ativo = false;
+
     /**
      * Creates new form JogoVelha
      */
     public JogoVelha() {
         initComponents();
+    }
+
+    public void jogadorAtivo() {
+        if (jogador1Ativo == true) {
+            jogador1Ativo = false;
+            jogador2Ativo = true;
+        }else{
+            jogador1Ativo = true;
+            jogador2Ativo = false;
+        }
+        
+        jogadorVencedor("X");
+        jogadorVencedor("0");
+    }
+    public void jogadorVencedor(String jogador){
+        if(B1.getText().equals(jogador) && 
+                B2.getText().equals(jogador) && 
+                B3.getText().equals(jogador)){
+            
+            if(B1.getText().equals("X")) {
+                vencedor("Jogador 1");
+            }else{
+                vencedor("Jogador 2");
+            }
+        }
+    }
+    
+    public void vencedor(String jogadorVencedor){
+        if(jogadorVencedor.equals("Jogador 1")){
+            JOptionPane.showMessageDialog(null, "Parabéns Jogador 1");
+        }
+        
+        if(jogadorVencedor.equals("Jogador 2")){
+            JOptionPane.showMessageDialog(null, "Parabéns Jogador 2");
+        }
     }
 
     /**
@@ -57,9 +96,66 @@ public class JogoVelha extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        B1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B1ActionPerformed(evt);
+            }
+        });
+
+        B2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         B2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 B2ActionPerformed(evt);
+            }
+        });
+
+        B3.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B3ActionPerformed(evt);
+            }
+        });
+
+        B4.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B4ActionPerformed(evt);
+            }
+        });
+
+        B5.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B5ActionPerformed(evt);
+            }
+        });
+
+        B6.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B6ActionPerformed(evt);
+            }
+        });
+
+        B9.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B9ActionPerformed(evt);
+            }
+        });
+
+        B8.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B8ActionPerformed(evt);
+            }
+        });
+
+        B7.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        B7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B7ActionPerformed(evt);
             }
         });
 
@@ -225,7 +321,147 @@ public class JogoVelha extends javax.swing.JFrame {
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
         // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B2.getText().equals("")) {
+                B2.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B2.getText().equals("")) {
+                B2.setText("0");
+                jogadorAtivo();
+            }
+
+        }
     }//GEN-LAST:event_B2ActionPerformed
+
+    private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B1.getText().equals("")) {
+                B1.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B1.getText().equals("")) {
+                B1.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B1ActionPerformed
+
+    private void B3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B3ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B3.getText().equals("")) {
+                B3.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B3.getText().equals("")) {
+                B3.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B3ActionPerformed
+
+    private void B4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B4ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B4.getText().equals("")) {
+                B4.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B4.getText().equals("")) {
+                B4.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B4ActionPerformed
+
+    private void B5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B5ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B5.getText().equals("")) {
+                B5.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B5.getText().equals("")) {
+                B5.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B5ActionPerformed
+
+    private void B6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B6ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B6.getText().equals("")) {
+                B6.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B6.getText().equals("")) {
+                B6.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B6ActionPerformed
+
+    private void B7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B7ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B7.getText().equals("")) {
+                B7.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B7.getText().equals("")) {
+                B7.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B7ActionPerformed
+
+    private void B8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B8ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B8.getText().equals("")) {
+                B8.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B8.getText().equals("")) {
+                B8.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B8ActionPerformed
+
+    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
+        // TODO add your handling code here:
+        if (jogador1Ativo == true) {
+            if (B9.getText().equals("")) {
+                B9.setText("X");
+                jogadorAtivo();
+            }
+        } else {
+            if (B9.getText().equals("")) {
+                B9.setText("0");
+                jogadorAtivo();
+            }
+
+        }
+    }//GEN-LAST:event_B9ActionPerformed
 
     /**
      * @param args the command line arguments
