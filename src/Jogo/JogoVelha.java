@@ -27,33 +27,57 @@ public class JogoVelha extends javax.swing.JFrame {
         if (jogador1Ativo == true) {
             jogador1Ativo = false;
             jogador2Ativo = true;
-        }else{
+        } else {
             jogador1Ativo = true;
             jogador2Ativo = false;
         }
-        
+
         jogadorVencedor("X");
         jogadorVencedor("0");
     }
-    public void jogadorVencedor(String jogador){
-        if(B1.getText().equals(jogador) && 
-                B2.getText().equals(jogador) && 
-                B3.getText().equals(jogador)){
-            
-            if(B1.getText().equals("X")) {
+
+    public void jogadorVencedor(String jogador) {
+        //VERIFICANDO AS LINHAS
+        if (B1.getText().equals(jogador)
+                && B2.getText().equals(jogador)
+                && B3.getText().equals(jogador)) {
+
+            if (B1.getText().equals("X")) {
                 vencedor("Jogador 1");
-            }else{
+            } else {
                 vencedor("Jogador 2");
             }
         }
+        if (B4.getText().equals(jogador)
+                && B5.getText().equals(jogador)
+                && B6.getText().equals(jogador)) {
+
+            if (B4.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+         if (B7.getText().equals(jogador)
+                && B8.getText().equals(jogador)
+                && B9.getText().equals(jogador)) {
+
+            if (B7.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+        //**************************************
+        //VERIFICANDO COLUNAS
     }
-    
-    public void vencedor(String jogadorVencedor){
-        if(jogadorVencedor.equals("Jogador 1")){
+
+    public void vencedor(String jogadorVencedor) {
+        if (jogadorVencedor.equals("Jogador 1")) {
             JOptionPane.showMessageDialog(null, "Parabéns Jogador 1");
         }
-        
-        if(jogadorVencedor.equals("Jogador 2")){
+
+        if (jogadorVencedor.equals("Jogador 2")) {
             JOptionPane.showMessageDialog(null, "Parabéns Jogador 2");
         }
     }
