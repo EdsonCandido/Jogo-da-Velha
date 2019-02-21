@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 public class JogoVelha extends javax.swing.JFrame {
 
     boolean jogador1Ativo = true, jogador2Ativo = false;
+    int numeroVitoriasJogador1 = 0, numeroVitoriasJogador2 = 0, numeroEmpates = 0;
+    
 
     /**
      * Creates new form JogoVelha
@@ -58,7 +60,7 @@ public class JogoVelha extends javax.swing.JFrame {
                 vencedor("Jogador 2");
             }
         }
-         if (B7.getText().equals(jogador)
+        if (B7.getText().equals(jogador)
                 && B8.getText().equals(jogador)
                 && B9.getText().equals(jogador)) {
 
@@ -70,16 +72,110 @@ public class JogoVelha extends javax.swing.JFrame {
         }
         //**************************************
         //VERIFICANDO COLUNAS
+        if (B1.getText().equals(jogador)
+                && B4.getText().equals(jogador)
+                && B7.getText().equals(jogador)) {
+
+            if (B1.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+        if (B2.getText().equals(jogador)
+                && B5.getText().equals(jogador)
+                && B8.getText().equals(jogador)) {
+
+            if (B2.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+        if (B3.getText().equals(jogador)
+                && B6.getText().equals(jogador)
+                && B9.getText().equals(jogador)) {
+
+            if (B3.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+        //***********************************
+        //VERIFICANDO DIAGONAIS 
+         if (B1.getText().equals(jogador)
+                && B5.getText().equals(jogador)
+                && B9.getText().equals(jogador)) {
+
+            if (B1.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+          if (B3.getText().equals(jogador)
+                && B5.getText().equals(jogador)
+                && B7.getText().equals(jogador)) {
+
+            if (B3.getText().equals("X")) {
+                vencedor("Jogador 1");
+            } else {
+                vencedor("Jogador 2");
+            }
+        }
+        //*****************************************
+        //VERIFICANDO EMPATE
+        if(!B1.getText().equals("") && 
+                !B2.getText().equals("") &&
+                !B3.getText().equals("") &&
+                !B4.getText().equals("") &&
+                !B5.getText().equals("") &&
+                !B6.getText().equals("") &&
+                !B7.getText().equals("") &&
+                !B8.getText().equals("") &&
+                !B9.getText().equals("")){
+            vencedor("Empare ");
+        }
+          
     }
 
     public void vencedor(String jogadorVencedor) {
         if (jogadorVencedor.equals("Jogador 1")) {
-            JOptionPane.showMessageDialog(null, "Parabéns Jogador 1");
+            JOptionPane.showMessageDialog(JogoVelha.this, "Parabéns Jogador 1, Você Venceu ");
+            
+            numeroVitoriasJogador1++;
+            numeroDeVitoriasJogador1.setText("Número de Vitórias : "+ numeroVitoriasJogador1);
+            limpaCampos();
         }
 
         if (jogadorVencedor.equals("Jogador 2")) {
-            JOptionPane.showMessageDialog(null, "Parabéns Jogador 2");
+            JOptionPane.showMessageDialog(JogoVelha.this, "Parabéns Jogador 2, Você venceu ");
+            numeroVitoriasJogador2++;
+            numeroDeVitoriasJogador2.setText("Número de Vitórias : "+numeroVitoriasJogador2);
+            limpaCampos();
         }
+        if(jogadorVencedor.equals("Empate")){
+            JOptionPane.showMessageDialog(JogoVelha.this, "OPA, Deu Empate, Jogue Novamente");
+            numeroEmpates++;
+            numeroDeEmpates.setText("Número de Empates : "+numeroEmpates);
+            limpaCampos();
+        }
+    }
+    
+    public void limpaCampos(){
+        B1.setText("");
+        B2.setText("");
+        B3.setText("");
+        B4.setText("");
+        B5.setText("");
+        B6.setText("");
+        B7.setText("");
+        B8.setText("");
+        B9.setText("");
+        
+        jogador1Ativo = true;
+        jogador2Ativo = false;
     }
 
     /**
@@ -284,10 +380,25 @@ public class JogoVelha extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Controles do Jogo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         novoJogo.setText("Novo Jogo");
+        novoJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoJogoActionPerformed(evt);
+            }
+        });
 
         sobreJogo.setText("Sobre o Jogo");
+        sobreJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sobreJogoActionPerformed(evt);
+            }
+        });
 
         sairJogo.setText("Sair");
+        sairJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairJogoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -486,6 +597,22 @@ public class JogoVelha extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_B9ActionPerformed
+
+    private void sobreJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sobreJogoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "DEU TRABALHO MAS FOI");
+    }//GEN-LAST:event_sobreJogoActionPerformed
+
+    private void novoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoJogoActionPerformed
+        // TODO add your handling code here:
+        limpaCampos();
+    }//GEN-LAST:event_novoJogoActionPerformed
+
+    private void sairJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairJogoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Adeus");
+        System.exit(0);
+    }//GEN-LAST:event_sairJogoActionPerformed
 
     /**
      * @param args the command line arguments
